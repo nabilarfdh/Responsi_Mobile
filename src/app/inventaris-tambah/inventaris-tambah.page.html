@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-button>
+    <ion-title>Tambah Inventaris</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Tambah Inventaris
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">No Inventaris</ion-label>
+      <ion-input required [(ngModel)]="no_inventaris" placeholder="No Inventaris" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nama</ion-label>
+      <ion-input required [(ngModel)]="nama" placeholder="Nama Inventaris" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Jumlah</ion-label>
+      <ion-input required [(ngModel)]="jumlah" placeholder="Jumlah" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Keterangan</ion-label>
+      <ion-select placeholder="Keterangan" [(ngModel)]="keterangan" (ionChange)="optionFn()">
+        <ion-select-option value="Rusak">Rusak</ion-select-option>
+        <ion-select-option value="Baik">Baik</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="addInventaris()" color="primary" shape="full" expand="block">Tambah Inventaris</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

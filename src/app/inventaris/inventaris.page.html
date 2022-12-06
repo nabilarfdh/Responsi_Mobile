@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-button>
+    <ion-title>Data Inventaris</ion-title>
+    <ion-icon (click)="logout()" slot="end" ios="exit-outline" md="exit-sharp" size="large"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Data Inventaris
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list lines="full">
+    <ion-button type="button" [routerLink]="['/inventaris-tambah']" routerLinkActive="router-link-active" color="success" expand="block">Tambah Inventaris</ion-button>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>List Data Inventaris</ion-list-header>
+  </ion-list>
+  <ion-card lines="inset" *ngFor="let inventaris_value of inventaris">
+    <ion-item>
+      <ion-label>{{ inventaris_value.nama }}</ion-label>
+      <ion-button color="primary" slot="end" [routerLink]="['/inventaris-edit/', inventaris_value.no_inventaris]" routerLinkActive="router-link-active">Edit</ion-button>
+      <ion-button color="danger" slot="end" (click)="deleteInventaris(inventaris_value.no_inventaris)">Hapus</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>
